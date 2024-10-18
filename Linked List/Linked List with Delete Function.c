@@ -1,68 +1,79 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node {
+struct Node
+{
 	int data;
-	struct Node * next;
+	struct Node *next;
 };
 
-struct Node * createNodeNode(struct Node * head, int data) {
-	struct Node * newNode, * temp;
+struct Node *createNodeNode(struct Node *head, int data)
+{
+	struct Node *newNode, *temp;
 
-	newNode = (struct Node *) malloc(sizeof(struct Node));
+	newNode = (struct Node *)malloc(sizeof(struct Node));
 
-	newNode -> data = data;
-	newNode -> next = 0;
+	newNode->data = data;
+	newNode->next = 0;
 
-	if (head == 0) {
+	if (head == 0)
+	{
 		head = newNode;
 	}
-	else {
+	else
+	{
 		temp = head;
 
-		while (temp -> next != 0) {
-			temp = temp -> next;
+		while (temp->next != 0)
+		{
+			temp = temp->next;
 		}
 
-		temp -> next = newNode;
+		temp->next = newNode;
 	}
 
 	return head;
 }
 
-void displayNodes(struct Node * head) {
-	struct Node * temp;
+void displayNodes(struct Node *head)
+{
+	struct Node *temp;
 	temp = head;
 
-	while (temp != 0) {
-		printf("%d ", temp ->data);
-		temp = temp -> next;
+	while (temp != 0)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
 	}
 }
 
 // Function to delete a node from the end
-void deleteNode(struct Node *head) {
-	struct Node * temp, *prev;
+void deleteNode(struct Node *head)
+{
+	struct Node *temp, *prev;
 
 	temp = head;
 
-	while (temp -> next != 0) {
+	while (temp->next != 0)
+	{
 		prev = temp;
-		temp = temp -> next;
+		temp = temp->next;
 	}
 
-	prev -> next = 0;
+	prev->next = 0;
 	free(temp);
 }
 
-int main() {
-	struct Node * head;
+int main()
+{
+	struct Node *head;
 	int choice = 1;
 	int data;
 
 	head = 0;
 
-	while (choice == 1) {
+	while (choice == 1)
+	{
 		printf("Enter a value: ");
 		scanf("%d", &data);
 
@@ -79,5 +90,4 @@ int main() {
 
 	printf("\nThe Linked List after popping one item from the end: ");
 	displayNodes(head);
-
 }
