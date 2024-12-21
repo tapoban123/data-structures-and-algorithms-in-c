@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Insertion happens from front end and deletion happens from rear end.
+
 struct queue
 {
     int front;
@@ -18,6 +20,10 @@ void enqueue(int x, struct queue *qu, int maxLength)
     }
     else if (qu->rear == maxLength - 1)
     {
+        // Here is the drawback of linear queue that is solved by circular queue.
+        // We always update the front value of linear queue when we delete a value. 
+        // So once a linear queue is full, it remains full forever, untill we remove all its value. 
+        // Even after deleting elements from the front, we cannot insert a new element from the rear.
         printf("Overflow!");
     }
     else
