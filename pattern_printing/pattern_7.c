@@ -1,3 +1,5 @@
+// Star Pyramid
+
 #include <stdio.h>
 
 int main()
