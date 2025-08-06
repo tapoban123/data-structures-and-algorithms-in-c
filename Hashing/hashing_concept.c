@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+void displayArr(int arr[], int n)
+{
+    printf("\nElements: ");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+}
+
 int main()
 {
     int arr[100] = {0};
@@ -12,14 +21,11 @@ int main()
     {
         printf("Enter an element between 0 and 100: ");
         scanf("%d", &inputArr[i]);
+        
         arr[inputArr[i]]++;
     }
 
-    printf("\nElements: ");
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d ", inputArr[i]);
-    }
+    displayArr(inputArr, n);
 
     int query;
     int keepRunning = 1;
