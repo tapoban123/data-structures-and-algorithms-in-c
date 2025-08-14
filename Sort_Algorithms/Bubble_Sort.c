@@ -1,3 +1,5 @@
+// Push the maximum element from left to right by swapping.
+
 #include <stdio.h>
 #include <string.h>
 
