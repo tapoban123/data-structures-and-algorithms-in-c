@@ -24,6 +24,9 @@ int main()
     int hash[1000], arr[n];
     struct Element maxEle = {0, 0}, minEle = {0, 0};
 
+
+    // ! Algorithm needs rework.
+
     for (int i = 0; i < n; i++)
     {
         printf("Enter an element: ");
