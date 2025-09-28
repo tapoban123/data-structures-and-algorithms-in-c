@@ -31,31 +31,60 @@ int findLongestSubArrayBruteForce(vector<int> arr, int k)
     return length;
 }
 
-int findLongestSubarrayBetterApproach(vector<int> arr, int k)
+// int findLongestSubarrayBetterApproach(vector<int> arr, int k)
+// {
+//     map<int, int> preSumMap = {};
+//     int sum = 0;
+//     int maxLen = 0;
+
+//     for (int i = 0; i < (int)(arr.size()); i++)
+//     {
+//         sum += arr[i];
+//         if (sum == k)
+//         {
+//             if (i + 1 > maxLen)
+//                 maxLen = i + 1;
+//         }
+
+//         int rem = sum - k;
+//         if (preSumMap.find(rem) != preSumMap.end())
+//         {
+//             int len = i - preSumMap[rem];
+//             if (len > maxLen)
+//                 maxLen = len;
+//         }
+
+//         if (preSumMap.find(sum) == preSumMap.end())
+//             preSumMap[sum] = i;
+//     }
+
+//     return maxLen;
+// }
+
+int findLongestSubarrayOptimalApproach(vector<int> arr, int k)
 {
-    map<int, int> preSumMap = {};
-    int sum = 0;
+    int left = 0, right = 0;
+    int sum = arr[0];
+    int n = arr.size();
     int maxLen = 0;
 
-    for (int i = 0; i < (int)(arr.size()); i++)
+    while (right < n)
     {
-        sum += arr[i];
-        if (sum == k)
+        while (left <= right && sum > k)
         {
-            if (i + 1 > maxLen)
-                maxLen = i + 1;
+            sum -= arr[left++];
         }
 
-        int rem = sum - k;
-        if (preSumMap.find(rem) != preSumMap.end())
+        if (sum == k)
         {
-            int len = i - preSumMap[rem];
+            int len = right - left + 1;
             if (len > maxLen)
                 maxLen = len;
         }
 
-        if (preSumMap.find(sum) == preSumMap.end())
-            preSumMap[sum] = i;
+        right++;
+        if (right < n)
+            sum += arr[right];
     }
 
     return maxLen;
@@ -71,12 +100,12 @@ void displayArr(vector<int> arr)
 
 int main()
 {
-    vector<int> arr = {1, 3, 3, 7, 2, 1, 2, 2, 2, 2, 2};
-    int k = 6;
+    vector<int> arr = {1, 1, 1, 3, 3, 7, 2, 1, 2, 2};
+    int k = 12;
 
     displayArr(arr);
 
-    int longestSubarray = findLongestSubarrayBetterApproach(arr, k);
+    int longestSubarray = findLongestSubarrayOptimalApproach(arr, k);
 
     cout << "Value of k = " << k << "\n";
 
