@@ -30,36 +30,6 @@ int findLongestSubArrayBruteForce(vector<int> arr, int k)
     return length;
 }
 
-// int findLongestSubarrayBetterApproach(vector<int> arr, int k)
-// {
-//     map<int, int> preSumMap = {};
-//     int sum = 0;
-//     int maxLen = 0;
-
-//     for (int i = 0; i < (int)(arr.size()); i++)
-//     {
-//         sum += arr[i];
-//         if (sum == k)
-//         {
-//             if (i + 1 > maxLen)
-//                 maxLen = i + 1;
-//         }
-
-//         int rem = sum - k;
-//         if (preSumMap.find(rem) != preSumMap.end())
-//         {
-//             int len = i - preSumMap[rem];
-//             if (len > maxLen)
-//                 maxLen = len;
-//         }
-
-//         if (preSumMap.find(sum) == preSumMap.end())
-//             preSumMap[sum] = i;
-//     }
-
-//     return maxLen;
-// }
-
 int findLongestSubarrayOptimalApproach(vector<int> arr, int k)
 {
     int left = 0, right = 0;
