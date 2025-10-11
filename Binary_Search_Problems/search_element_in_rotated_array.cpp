@@ -4,6 +4,7 @@ using namespace std;
 
 int searchElementInRotatedArr(vector<int> arr, int k)
 {
+    // Here first step is to find the sorted half
     int low = 0, high = arr.size() - 1, mid;
 
     while (low <= high)
