@@ -2,7 +2,23 @@
 #include <vector>
 using namespace std;
 
-int findMinInRotatedSortedArr(vector<int> arr) {}
+int findMinInRotatedSortedArr(vector<int> arr)
+{
+    int start = 0, end = arr.size() - 1, mid;
+
+    while (start < end)
+    {
+        mid = (start + end) / 2;
+
+        if (arr[mid] > arr[end])
+            start = mid + 1;
+
+        else
+            end = mid;
+    }
+
+    return arr[start];
+}
 
 void displayArr(vector<int> arr)
 {
