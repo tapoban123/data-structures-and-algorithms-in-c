@@ -1,7 +1,7 @@
 /*
 Four Types of Tree traversal:
-1. PreOrder traversal -> The left subtree is travelled first.
-2. Inorder Traversal -> The root is travelled before the children.
+1. PreOrder traversal -> The left subtree is travelled first. Root is travelled before the children. (root, left, right)
+2. Inorder Traversal -> The root is travelled in between the children. That is (left, root, right)
 3. PostOrder Traversal -> The root is travelled after it's children are travelled.
 4. LevelOrder Traversal -> Each level is travelled individually.
 
@@ -44,13 +44,21 @@ Node *buildTree(vector<int> preorderSeq)
 void preOrderTraversal(Node *root)
 {
     if (root == NULL)
-    {
         return;
-    }
 
     cout << root->data << " ";
     preOrderTraversal(root->left);
     preOrderTraversal(root->right);
+}
+
+void inOrderTraversal(Node *root)
+{
+    if (root == NULL)
+        return;
+
+    inOrderTraversal(root->left);
+    cout << root->data << " ";
+    inOrderTraversal(root->right);
 }
 
 int main()
@@ -60,4 +68,9 @@ int main()
 
     cout << "Running PreOrder Traversal:" << endl;
     preOrderTraversal(root);
+
+    cout <<"\n";
+    
+    cout << "Running InOrder Traversal:" << endl;
+    inOrderTraversal(root);
 }
