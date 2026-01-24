@@ -1,4 +1,4 @@
-// Algorithms of height of tree and count number of nodes in a tree are implemented here
+// Algorithms of height of tree, count number of nodes and sum of nodes in a tree are implemented here
 
 #include <iostream>
 #include <vector>
