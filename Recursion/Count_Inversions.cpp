@@ -1,3 +1,7 @@
+// Inversions must satisfy the following conditions:
+// i < j
+// arr[i] > arr[j]
+
 #include <iostream>
 #include <vector>
 using namespace std;
